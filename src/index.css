@@ -1,0 +1,148 @@
+/* Importa normalize para resetar estilos padrões */
+@import "normalize.css";
+
+/* Box sizing para facilitar lidar com largura/altura */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Estilos básicos do corpo */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Link padrão */
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botões com cursor pointer */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Header fixo no topo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+}
+
+/* Sidebar fixo na esquerda */
+.sidebar {
+  position: fixed;
+  top: 60px; /* abaixo do header */
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: 2px 0 4px rgb(0 0 0 / 0.1);
+}
+
+/* Links na sidebar */
+.sidebar a {
+  display: block;
+  color: #ccc;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Área principal do conteúdo */
+.main-content {
+  margin-top: 60px; /* altura do header */
+  margin-left: 220px; /* largura da sidebar */
+  padding: 1.5rem;
+  min-height: calc(100vh - 60px);
+  background-color: #fff;
+}
+
+/* Layout para páginas que não têm sidebar (ex: login) */
+.no-sidebar {
+  margin: 0;
+  padding-top: 60px; /* para não ficar atrás do header */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Formulários básicos */
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+label {
+  font-weight: 600;
+}
+
+/* Botões primários */
+button.primary {
+  background-color: #0077cc;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button.primary:hover {
+  background-color: #005fa3;
+}
+
+/* Mensagens de erro */
+.error {
+  color: #cc0000;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}

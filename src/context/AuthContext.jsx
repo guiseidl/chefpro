@@ -1,16 +1,32 @@
-import { createContext, useContext, useState } from "react";
+// src/contexts/AuthContext.jsx
+import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  // Inicializa com valor do localStorage
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+  
   const navigate = useNavigate();
 
+  // Atualiza localStorage quando user muda
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
+
   const login = (username, password) => {
-    // Simulação de login
     if (username === "admin" && password === "admin") {
-      setUser({ username: "admin" });
+      const userData = { username: "admin" };
+      setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData)); // Garantia dupla
       navigate("/admin");
     } else {
       alert("Credenciais inválidas");
@@ -19,7 +35,9 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    navigate("/login");
+    localStorage.removeItem("user");
+    // Forçar um redirecionamento completo para garantir
+    window.location.href = "/login";
   };
 
   return (

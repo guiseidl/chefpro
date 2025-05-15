@@ -7,6 +7,7 @@ import AdminLayout from "../pages/admin/AdminLayout";
 import NewRecipe from "../pages/admin/NewRecipe";
 import RecipeList from "../pages/admin/RecipeList";
 import PrivateRoute from "./PrivateRoute";
+import Logout from "../pages/Logout";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/receitas" element={<Recipes />} />
       <Route path="/receita/:id" element={<RecipeDetails />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/logout" element={<Logout />} />
 
       <Route
         path="/admin"

@@ -7,6 +7,7 @@ import RecipeList from "./pages/admin/RecipeList";
 import NewRecipe from "./pages/admin/NewRecipe";
 import RecipeDetail from "./pages/admin/RecipeDetail";
 
+
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -14,6 +15,7 @@ const App = () => {
   const handleLogout = () => setIsAuthenticated(false);
 
   if (!isAuthenticated) {
+    
     return <Login onLogin={handleLogin} />;
   }
 
